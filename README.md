@@ -1,2 +1,2 @@
 # tools
-a bunch of tools to facilitate tasks for as per my convinience :p
+a bunch of tools to facilitate tasks as per my convinience :p
