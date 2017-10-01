@@ -1,2 +1,2 @@
 # tools
-a bunch of tools to facilitate tasks as per my convinience :p
+a bunch of tools and configuration files to make my life easier :p
