@@ -84,8 +84,19 @@ this command takes a {"remote name"} and a {"repository URL"}; it is used to giv
 
 git remote add origin {url}
 
+
+git remote set-url origin {sshurl}
+==========
+to change origin url
+
 name:origin repo_url:https://github.com/try-git/try_git.git
 ------------------------------------------------------
+
+
+git remote -v
+=================
+to list origin urls
+
 
 
 git push -u origin master
