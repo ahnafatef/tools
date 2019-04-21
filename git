@@ -1,0 +1,158 @@
+git init
+============
+create repository(a repository is where Git has been initialized, a .git/ is created to start version controlling) in working dir; .git/ is the backbone of Git where evrythng happens
+------------------------------------------------------
+
+
+git config --global user.name {"USERNAME"}
+git config --global user.email {"mail@example.com"}
+=====================================================
+type this when you set git up for the first time on your machine to let it know you;
+-------------------------------------------------
+
+
+git status
+============
+to check current state of our project
+------------------------------------------------------
+
+
+⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜
+'staged'    : files are ready to be commited
+
+'unstaged'  : (tracked) files with changes that have not been prepared to be commited
+
+'untracked' : files not tracked by Git yet; this usually indicates a newly created file
+
+'deleted'   : file has been deleted and is waiting to be removed from Git
+⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜
+
+
+
+git add {file}
+================
+add file to staging area to start tracking; in order to stage, this command is necessary; it acts sort of like a checkmark;
+there are essentially 2 cases where this has to be used: the other is when you need to start tracking changes (usually when new files are added)
+------------------------------------------------------
+git add -A {.}
+===============
+adds everything in the "."(current directory); the -A flag ensures even file deletions are included
+------------------------------------------------------
+git reset {filename}
+=====================
+to remove a file/files from staging area
+------------------------------------------------------
+⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜
+'staging area' : a place where we can group files together before we "commit" them to Git
+
+'commit'       : a "commit" is a snapshot of our repository; this way if we ever need to look back at the changes we've made (or if someone else does), we will see a nice timeline of all changes.
+⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜
+
+
+⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜
+ files in the staging area are not in our repository yet; we could add or remove files from the stage before we store them in the repository
+⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜
+
+
+git commit -m {"message"}
+===========================
+stores the staged changes to the repository with a short message describing the change
+------------------------------------------------------
+
+⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜
+'wildcards' : we need quotes so that Git will receive the wildcard before our shell can interfere with it; without quotes our shell will only execute the wildcard search within the current directory. Git will receive the list of files the shell found instead of the wildcard and it will not be able to add the files inside of the octofamily directory(which has more txt files)
+⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜
+
+
+git log
+============
+think of Git's log as a journal that remembers all the changes we've committed so far, in the order we committed them
+------------------------------------------------------
+git log --summary
+==================
+to see more information for each commit; you can see where new files were added for the first time or where files were deleted
+------------------------------------------------------
+
+⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜
+'remote repositories' : to push our local repo to the GitHub server we'll need to add a remote repository; Git doesn't care what you name your remotes, but it's typical to name your main one "origin"
+⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜
+
+
+git remote add
+================
+this command takes a {"remote name"} and a {"repository URL"}; it is used to give the repo url a name so that we don't have to type the entire url everytime
+
+git remote add origin {url}
+
+name:origin repo_url:https://github.com/try-git/try_git.git
+------------------------------------------------------
+
+
+git push -u origin master
+================
+push to the remote named origin (which is a reference to the repo url), on the master branch from current local branch
+
+
+------------------------------------------------------
+
+
+
+
+git branch {branchName}
+=========================
+create a new branch and call it branchName
+-------------------------
+
+git branch
+=========================
+lists all branches
+-------------------------
+
+
+git branch -d {branchName}
+=========================
+delete branchName
+-------------------------
+
+
+git checkout {branchName}
+=====================
+change to (existing) branch branchName
+----------------------
+
+git checkout -b {branchName}
+=======================
+create a new branch named branchName and change to it
+----------------------------
+
+
+git checkout {commitHash}
+=======================
+takes you to a point in time defined by commitHash
+----------------------------
+
+
+
+git revert --no-commit {commitHash}..HEAD
+=======================
+takes you to a point in time defined by commitHash and forgets all the latter events; allows you to revert to an old state;
+
+run `git commit` after this
+----------------------------
+
+
+git merge {branchName}
+======================
+merges the branchName into the current branch (creates a new commit that includes data from current branch and branchName)
+--------------------------------------
+
+
+⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜
+the '.gitignore' file is used to tell git to ignore files; git will act as if the entries in the .gitignore file don't exist
+⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜⁜
+
+
+git reset HEAD {filename}
+======================
+stop tracking files or remove file from staging area
+--------------------------------------
